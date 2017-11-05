@@ -80,8 +80,7 @@
                             </div>
                         </div>
                         <div class="ibox-content">
-                            <!-- <form method="get" class="form-horizontal"> -->
-                            <form action="<?php echo site_url('admin/c_admin/add_orders'); ?>" method="post">
+                            <form method="get" class="form-horizontal">
                                 <div class="form-group"><label class="col-sm-2 control-label">Tipe Cuti</label>
                                     <div class="col-sm-2">
                                         <?php
@@ -106,7 +105,7 @@
                                 <div class="hr-line-dashed"></div>
                                 <div class="form-group"><label class="col-sm-2 control-label">Kota Menjalankan Cuti</label>
 
-                                    <div class="col-sm-10"><input class="autocomplete name" type="search" id="autocomplete1" name="name"></div>
+                                    <div class="col-sm-10"><input class="form-control" type="text" name="name" id="regencyname"></div>
                                 </div>
                                
                                 <div class="hr-line-dashed"></div>

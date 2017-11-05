@@ -16,22 +16,16 @@ class Cutinew extends CI_Controller {
 	}
 
 	public function search() {
-	//tangkap Variabel Keyword dari URL
-		$keyword = $this->uri->segment(3);
-
-		//cari di database
-		$data = $this->db->from('regencies')->like('name', $keyword)->get();
-
-		//format keluaran di dalam array
-		foreach ($data->result() as $row) {
-			# code...
-			$arr['query'] = $keyword;
-			$arr ['suggestions'][] = array(
-				'value' => $row->name
-			);
+		if (isset($_GET['term'])){
+			
+			$result = $this->Mcuti->search($_GET['term']);
+			if(count($result) > 0){
+			foreach ($rsult as $pr) 
+				$arr_result[] = $pr->name;
+			echo json_encode($arr_result);
+			}	
 		}
-		//Minimal PHP 5.2
-		echo json_encode($arr);
+		
 
 	}
 }

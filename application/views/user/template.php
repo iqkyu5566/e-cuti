@@ -18,33 +18,21 @@
     <link href="<?php echo base_url(); ?>assets/css/plugins/datapicker/datepicker3.css" rel="stylesheet">
 
 
+     <!-- Autocomplete Textfield -->
+     <link href="<?php echo base_url(); ?>assets/jquery-ui/jquery.ui.all.css" rel="stylesheet" type="text/css">
 
-     <!-- Memanggil file .js untuk proses autocomplete -->
     <script src="<?php echo base_url(); ?>assets/js/jquery-2.1.1.js"></script>
-    <script src="<?php echo base_url(); ?>assets/js/jquery.autocomplete.js"></script>
+    <script src="<?php echo base_url(); ?>assets/js/jquery-ui.custom.min.js"></script>
 
-     <!-- Memanggil file .css untuk style saat data dicari dalam filed -->
-    <link href="<?php echo base_url(); ?>assets/css/jquery.autocomplete.css" rel="stylesheet">
-
-    <!-- Memanggil file .css autocomplete_ci/assets/css/default.css -->
-    <link href="<?php echo base_url(); ?>assets/css/default.css" rel="stylesheet">
-
-
-    <script type='text/javascript'>
-        var site = "<?php echo site_url();?>";
-        $(function(){
-            $('.autocomplete').autocomplete({
-                // serviceUrl berisi URL ke controller/fungsi yang menangani request kita
-                serviceUrl: site+'/autocomplete/search',
-                // fungsi ini akan dijalankan ketika user memilih salah satu hasil request
-                onSelect: function (suggestion) {
-                    $('#v_nim').val(''+suggestion.nim); // membuat id 'v_nim' untuk ditampilkan
-                    $('#v_jurusan').val(''+suggestion.jurusan); // membuat id 'v_jurusan' untuk ditampilkan
-                }
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('#regencyname').autocomplete({
+                <source "<?php echo site_url ('pengajuan/Cutinew/search/?'); ?>">
             });
-        });
+        }
     </script>
 
+    
 </head>
 
 <body class="top-navigation">
