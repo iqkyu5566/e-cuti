@@ -7,27 +7,18 @@ class Cutinew extends CI_Controller {
 	{
 		parent::__construct();
 		//Do your magic here
+		$this->load->model('Mcuti');
+
 	}
 
 	public function index()
 	{
-		$this->template->load('user/template', 'user/pengajuan/cutinew_add');
+		$data['kota' ] = $this->Mcuti->tampil_kota();
+		$this->template->load('user/template', 'user/pengajuan/cutinew_add', $data);
 
 	}
 
-	public function search() {
-		if (isset($_GET['term'])){
-			
-			$result = $this->Mcuti->search($_GET['term']);
-			if(count($result) > 0){
-			foreach ($rsult as $pr) 
-				$arr_result[] = $pr->name;
-			echo json_encode($arr_result);
-			}	
-		}
-		
-
-	}
+	
 }
 
 /* End of file Cutinew.php */

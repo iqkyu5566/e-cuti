@@ -84,7 +84,7 @@
                                 <div class="form-group"><label class="col-sm-2 control-label">Tipe Cuti</label>
                                     <div class="col-sm-2">
                                         <?php
-                                        echo cmb_dinamis('cuti', 'cuti', 'nama', 'id_cuti');
+                                        echo cmb_dinamis('type_cuti', 'type_cuti', 'type', 'id_type_cuti');
                                         ?>
                                     </div>
 
@@ -105,7 +105,7 @@
                                 <div class="hr-line-dashed"></div>
                                 <div class="form-group"><label class="col-sm-2 control-label">Kota Menjalankan Cuti</label>
 
-                                    <div class="col-sm-10"><input class="form-control" type="text" name="name" id="regencyname"></div>
+                                    <div class="col-sm-10"><input class="form-control" list ="kota" id="countries"></div>
                                 </div>
                                
                                 <div class="hr-line-dashed"></div>
@@ -168,6 +168,16 @@
                         </div>
                     </div>
                 </div>
+
+<datalist id="kota">
+  <?php 
+  foreach ($kota->result() as $k) {
+    # code...
+    echo "<option value='$k->nama_kota'>";
+  }
+   ?>
+  
+</datalist>
 <!-- End Form Pemeriksa Pemutus
                 </div>
             </div>

@@ -3,16 +3,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Mcuti extends CI_Model {
 
-	public function __construct()
-	{
-		parent::__construct();
-		//Do your magic here
+	function tampil_kota(){
+		$query = "SELECT * FROM pengajuan_cuti as pc, kota as k WHERE pc.id_kota = k.id_kota ";
+		return $this->db->query($query);
 	}
-
-	function search($name){
-		$this->db->like('name', $name, 'both');
-		return $this->db->get('regencies')->result();
-	}
+		
+	
 
 }
 
