@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>INSPINIA | Dashboard</title>
+    <title>Administrator E-Cuti</title>
 
     <link href="<?php echo base_url(); ?>assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>assets/font-awesome/css/font-awesome.css" rel="stylesheet">
@@ -21,7 +21,8 @@
     <link href="<?php echo base_url(); ?>assets/css/style.css" rel="stylesheet">
 
     <!-- JQUERY BARU -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> -->
+    <script src="<?php echo base_url(); ?>assets/js/jquery-2.1.1.js"></script>
 
 </head>
 
@@ -35,7 +36,7 @@
                             <img alt="image" class="img-circle" src="img/profile_small.jpg" />
                              </span>
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">David Williams</strong>
+                            <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold"><?php echo $this->session->userdata('nama_lengkap'); ?></strong>
                              </span> <span class="text-muted text-xs block">Art Director <b class="caret"></b></span> </span> </a>
                             <ul class="dropdown-menu animated fadeInRight m-t-xs">
                                 <li><a href="profile.html">Profile</a></li>
@@ -53,25 +54,21 @@
                         <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">Home</span> </a>
                     </li>
                     <li>
-                        <a href="<?php echo base_url(); ?>index.php/admin/list_pengajuan"><i class="fa fa-diamond"></i> <span class="nav-label">Pengajuan Cuti</span></a>
+                        <a href="<?php echo base_url(); ?>index.php/pengajuan"><i class="fa fa-diamond"></i> <span class="nav-label">Pengajuan Cuti</span></a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">History Cuti</span></a>
+                        <a href="<?php echo base_url(); ?>index.php/history_cuti"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">History Cuti</span></a>
                         
                     </li>
                     <li>
-                        <a href="mailbox.html"><i class="fa fa-envelope"></i> <span class="nav-label">Master Data </span><span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li><a href="<?php echo base_url(); ?>index.php/admin/list_pegawai">Data Pegawai</a></li>
-                            <li><a href="<?php echo base_url(); ?>index.php/admin/list_admin">Data Admin</a></li>
-                            
-                        </ul>
+                        <a href="<?php echo base_url(); ?>index.php/user"><i class="fa fa-envelope"></i> <span class="nav-label">Data User </span></a>
                     </li>
                     <li>
-                        <a href="widgets.html"><i class="fa fa-flask"></i> <span class="nav-label">Setting</span> </a>
+                        <a href="<?php echo base_url(); ?>index.php/setting"><i class="fa fa-flask"></i> <span class="nav-label">Setting</span> </a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-edit"></i> <span class="nav-label">Logout</a>
+                        
+                        <?php echo anchor('auth/logout', '<i class="fa fa-edit"></i> &nbsp;Log Out'); ?>
                        
                     </li>               
             
@@ -93,7 +90,7 @@
         </div>
             <ul class="nav navbar-top-links navbar-right">
                 <li>
-                    <span class="m-r-sm text-muted welcome-message">Welcome to INSPINIA+ Admin Theme.</span>
+                    <span class="m-r-sm text-muted welcome-message">Selamat Datang di Aplikasi E-Cuti Online</span>
                 </li>
                 <li class="dropdown">
                     <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
@@ -193,9 +190,10 @@
 
 
                 <li>
-                    <a href="login.html">
-                        <i class="fa fa-sign-out"></i> Log out
-                    </a>
+                    
+                    <?php echo anchor('auth/logout', '<i class="fa fa-sign-out"></i> &nbsp;Log Out'); ?>
+                         
+                    
                 </li>
             </ul>
 
@@ -270,7 +268,7 @@
                     showMethod: 'slideDown',
                     timeOut: 4000
                 };
-                toastr.success('Responsive Admin Theme', 'Welcome to INSPINIA');
+                toastr.success('Aplikasi E-Cuti', 'Selamat Datang');
 
             }, 1300);
 

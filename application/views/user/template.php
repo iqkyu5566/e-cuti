@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>E-cuti Online</title>
+    <title>E-cuti Online</title> 
 
     <link href="<?php echo base_url(); ?>assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>assets/font-awesome/css/font-awesome.css" rel="stylesheet">
@@ -18,21 +18,29 @@
     <link href="<?php echo base_url(); ?>assets/css/plugins/datapicker/datepicker3.css" rel="stylesheet">
 
 
-     <!-- Autocomplete Textfield -->
-     <link href="<?php echo base_url(); ?>assets/jquery-ui/jquery.ui.all.css" rel="stylesheet" type="text/css">
+     <!-- Autocomplete -->
+      <link href="<?php echo base_url("assets2/bootstrap/js/jquery.autocomplete.css"); ?>" rel='stylesheet' />
+    <link href="<?php echo base_url("assets2/bootstrap/js/default.css"); ?>" rel='stylesheet' />
+    <link href="<?php echo base_url("assets2/bootstrap/css/bootstrap.css"); ?>" rel='stylesheet' />
+    <link href="<?php echo base_url("assets2/bootstrap/css/bootstrap.min.css"); ?>" rel='stylesheet' />
+    <script type='text/javascript' src="<?php echo base_url("assets2/plugins/jQuery/jquery-2.2.3.min.js"); ?>"></script>
+    <script type='text/javascript' src="<?php echo base_url("assets2/bootstrap/js/jquery.autocomplete.js"); ?>"></script>
 
-    <script src="<?php echo base_url(); ?>assets/js/jquery-2.1.1.js"></script>
-    <script src="<?php echo base_url(); ?>assets/js/jquery-ui.custom.min.js"></script>
-
-    <script type="text/javascript">
-        $(document).ready(function(){
-            $('#regencyname').autocomplete({
-                <source "<?php echo site_url ('pengajuan/Cutinew/search/?'); ?>">
+    <script>
+        function autofill() {
+            var nik = $("#nik").val();
+            $.ajax({
+                url : "pencari",
+                data : 'nik'+nik,
+            }). success(function(data){
+                var json = data,
+                obj = JSON.parse(json);
+                $("#nama_pegawai").val(obj.nama_pegawai);
+                $("#jabatan").val(obj.jabatan);
             });
         }
+        
     </script>
-
-    
 </head>
 
 <body class="top-navigation">
@@ -468,3 +476,4 @@
 </body>
 
 </html>
+
